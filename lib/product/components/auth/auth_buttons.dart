@@ -25,7 +25,7 @@ class AuthButtons {
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: ProjectColors.primaryDark,
+          backgroundColor: ProjectColors.primary,
           shape: RoundedRectangleBorder(
             borderRadius: ProjectPaddings.radiusCircular,
           ),
