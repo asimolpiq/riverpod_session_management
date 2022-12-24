@@ -1,0 +1,55 @@
+name: riverpod_session_management
+description: Asimolpiq Riverpod Session Management
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+dependencies:
+  cupertino_icons: ^1.0.2
+  google_fonts: ^3.0.1
+
+  flutter:
+    sdk: flutter
+  #state management
+  flutter_mobx: ^2.0.6+5
+  riverpod: ^2.1.1
+  #routing
+  go_router: ^6.0.0
+  #network management
+  dio: ^4.0.6
+  
+  #bottom bar
+  google_nav_bar: ^5.0.6
+  #json
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+  #context
+  kartal: ^2.7.0
+  #utilitys
+  table_calendar: ^3.0.8
+  lottie: ^2.0.0
+  omni_datetime_picker: ^0.1.3
+
+dev_dependencies:
+
+  #codegen
+  build_runner: ^2.3.2
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+  mobx_codegen: ^2.1.1
+  flutter_native_splash: ^2.2.16
+
+flutter_native_splash: 
+  color: "#00456F"
+  image:  assets/logo_white.png
+  android: true
+  ios: true 
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
