@@ -15,12 +15,13 @@ dependencies:
     sdk: flutter
   #state management
   flutter_mobx: ^2.0.6+5
-  riverpod: ^2.1.1
+  flutter_riverpod: ^2.1.2
   #routing
   go_router: ^6.0.0
   #network management
   dio: ^4.0.6
-  
+  #cache
+  shared_preferences: ^2.0.15
   #bottom bar
   google_nav_bar: ^5.0.6
   #json
@@ -28,10 +29,7 @@ dependencies:
   json_serializable: ^6.5.4
   #context
   kartal: ^2.7.0
-  #utilitys
-  table_calendar: ^3.0.8
-  lottie: ^2.0.0
-  omni_datetime_picker: ^0.1.3
+
 
 dev_dependencies:
 

@@ -1,22 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
-import 'package:riverpod_session_management/product/components/auth/auth_buttons.dart';
 import 'package:riverpod_session_management/product/components/auth/custom_page_header.dart';
 import 'package:riverpod_session_management/product/strings/auth_strings.dart';
+import 'package:riverpod_session_management/product/utility/assets_manager.dart';
 import 'package:riverpod_session_management/product/utility/box_decorations_utility.dart';
+import 'package:riverpod_session_management/product/utility/project_colors.dart';
 import 'package:riverpod_session_management/product/utility/project_paddings.dart';
 import 'package:riverpod_session_management/product/utility/project_spacers.dart';
 import 'package:riverpod_session_management/view/auth/model/login_view_model.dart';
 
 import '../../product/components/auth/login_form_field.dart';
+part '../../product/components/auth/auth_buttons.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
 enum TextEditingType {
@@ -30,7 +34,7 @@ class _LoginPageState extends LoginViewModel {
   final TextEditingController passwordController = TextEditingController();
   bool isVisible = false;
   final LoginStrings loginStrings = LoginStrings();
-  final AuthButtons authButtons = AuthButtons();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
@@ -72,17 +76,43 @@ class _LoginPageState extends LoginViewModel {
                         textEditingType: TextEditingType.password,
                       ),
                       ProjectSpacers.spacer16,
-                      authButtons.buildLoginButton(formKey, context),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            bool isValid = formKey.currentState!.validate();
+                            if (isValid) {
+                              fetchUserLogin(emailController.text, passwordController.text);
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: ProjectColors.primary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: ProjectPaddings.radiusCircular,
+                            ),
+                            fixedSize: const Size(0, 50),
+                          ),
+                          child: Text(
+                            loginStrings.login,
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          authButtons.customMaterialButton(onPressed: () {}, text: loginStrings.forgotPasswordText),
+                          customMaterialButton(onPressed: () {}, text: loginStrings.forgotPasswordText),
                         ],
                       ),
                       ProjectSpacers.spacer20,
-                      authButtons.buildOrText(),
+                      buildOrText(),
                       ProjectSpacers.spacer20,
-                      authButtons.buildLoginWithGoogle(),
+                      buildLoginWithGoogle(),
                     ],
                   ),
                 ),

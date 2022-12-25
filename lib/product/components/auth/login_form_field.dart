@@ -39,7 +39,7 @@ class _LoginFormFieldState extends State<LoginFormField> {
           case TextEditingType.email:
             return value.isValidEmail ? null : 'Lütfen Geçerli Bir Email Adresi Giriniz.';
           case TextEditingType.password:
-            return value.isValidPassword
+            return value.length > 6
                 ? null
                 : 'Lütfen Şifrenizin A-z | 0-9 | !@#\$&*~ Karakterlerini \nİçerdiğinden Ve 8 karakterli olduğundan emin olun';
 

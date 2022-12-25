@@ -1,34 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
+import 'package:riverpod_session_management/core/auth_manager.dart';
+import 'package:riverpod_session_management/model/user_model.dart';
 import 'package:riverpod_session_management/product/utility/assets_manager.dart';
 import 'package:riverpod_session_management/product/utility/project_colors.dart';
 import 'package:riverpod_session_management/product/utility/project_spacers.dart';
+import 'package:riverpod_session_management/view/auth/login_view.dart';
+import 'package:riverpod_session_management/view/home/home_view.dart';
 
-import '../auth/login_view.dart';
-
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    changeScreen();
+    controlToLogin();
   }
 
-  void changeScreen() async {
-    await Future.delayed(const Duration(seconds: 3));
-    // ignore: use_build_context_synchronously
-    Navigator.pop(context);
-    // ignore: use_build_context_synchronously
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const LoginPage(),
-    ));
+  Future<void> controlToLogin() async {
+    await ref.read(AuthProvider).fetchUserLogin();
+    if (ref.read(AuthProvider).isLogin) {
+      await Future.delayed(const Duration(seconds: 1));
+      ref.read(AuthProvider).model = UserModel.fake();
+      context.navigation.popUntil((route) => false);
+      context.navigation.push(MaterialPageRoute(builder: (context) => const Homepage()));
+    } else {
+      await Future.delayed(const Duration(seconds: 3));
+      context.navigation.push(MaterialPageRoute(builder: (context) => const LoginPage()));
+    }
   }
 
   @override
