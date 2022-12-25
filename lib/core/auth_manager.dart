@@ -3,7 +3,7 @@ import 'package:riverpod_session_management/model/user_model.dart';
 
 import 'cache_manager.dart';
 
-class AuthenticationManager extends CacheManager {
+class AuthenticationManager with CacheManager {
   AuthenticationManager() {
     fetchUserLogin();
   }
