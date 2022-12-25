@@ -53,75 +53,83 @@ class _LoginPageState extends LoginViewModel {
                   height: context.isKeyBoardOpen ? kToolbarHeight * 1.7 : MediaQuery.of(context).size.height / 3,
                   child: CustomPageHeader.customPageHeader(context)),
               ProjectSpacers.customSpacer,
-              Form(
-                key: formKey,
-                child: Padding(
-                  padding: ProjectPaddings.horizontal20,
-                  child: Column(
-                    children: [
-                      LoginFormField(
-                        editingController: emailController,
-                        icon: Icon(CupertinoIcons.mail, color: context.colorScheme.onSurface),
-                        hintText: loginStrings.emailHint,
-                        textEditingType: TextEditingType.email,
-                      ),
-                      ProjectSpacers.spacer16,
-                      LoginFormField(
-                        editingController: passwordController,
-                        icon: Icon(
-                          CupertinoIcons.lock,
-                          color: context.colorScheme.onSurface,
-                        ),
-                        hintText: loginStrings.passwordHint,
-                        textEditingType: TextEditingType.password,
-                      ),
-                      ProjectSpacers.spacer16,
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            bool isValid = formKey.currentState!.validate();
-                            if (isValid) {
-                              fetchUserLogin(emailController.text, passwordController.text);
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: ProjectColors.primary,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: ProjectPaddings.radiusCircular,
-                            ),
-                            fixedSize: const Size(0, 50),
-                          ),
-                          child: Text(
-                            loginStrings.login,
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          customMaterialButton(onPressed: () {}, text: loginStrings.forgotPasswordText),
-                        ],
-                      ),
-                      ProjectSpacers.spacer20,
-                      buildOrText(),
-                      ProjectSpacers.spacer20,
-                      buildLoginWithGoogle(),
-                    ],
-                  ),
-                ),
-              ),
+              LoginForm(context),
             ],
           ),
         ),
       ),
     ));
+  }
+
+  Form LoginForm(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: ProjectPaddings.horizontal20,
+        child: Column(
+          children: [
+            LoginFormField(
+              editingController: emailController,
+              icon: Icon(CupertinoIcons.mail, color: context.colorScheme.onSurface),
+              hintText: loginStrings.emailHint,
+              textEditingType: TextEditingType.email,
+            ),
+            ProjectSpacers.spacer16,
+            LoginFormField(
+              editingController: passwordController,
+              icon: Icon(
+                CupertinoIcons.lock,
+                color: context.colorScheme.onSurface,
+              ),
+              hintText: loginStrings.passwordHint,
+              textEditingType: TextEditingType.password,
+            ),
+            ProjectSpacers.spacer16,
+            LoginButton(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                customMaterialButton(onPressed: () {}, text: loginStrings.forgotPasswordText),
+              ],
+            ),
+            ProjectSpacers.spacer20,
+            buildOrText(),
+            ProjectSpacers.spacer20,
+            buildLoginWithGoogle(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SizedBox LoginButton() {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {
+          bool isValid = formKey.currentState!.validate();
+          if (isValid) {
+            fetchUserLogin(emailController.text, passwordController.text);
+          }
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: ProjectColors.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: ProjectPaddings.radiusCircular,
+          ),
+          fixedSize: const Size(0, 50),
+        ),
+        child: Text(
+          loginStrings.login,
+          style: GoogleFonts.montserrat(
+            textStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
