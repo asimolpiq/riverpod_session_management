@@ -2,9 +2,9 @@
 
 Bu projemde sizlere riverpod kullanarak nasıl oturum işlemlerini yöneteceğinizi, oturum bilgilerini kaydedeceğinizi ve nasıl klasörleme yapmanız gerektiğini içeren bir kod yapısı hazırladım.
 
-## Giriş Yaomak için:
+## Giriş Yapmak için:
 
-  "email": "eve.holt@reqres.in",
+  "email": "eve.holt@reqres.in" - 
   "password": "cityslicka"
 
   ### Bu projede API altyapısı olarak reqres.in kullanılmıştır.
