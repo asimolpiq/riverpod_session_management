@@ -7,7 +7,7 @@ import 'package:riverpod_session_management/core/cache_manager.dart';
 import 'package:riverpod_session_management/model/user_model.dart';
 import 'package:riverpod_session_management/model/user_request_model.dart';
 import 'package:riverpod_session_management/service/login_service.dart';
-import 'package:riverpod_session_management/view/auth/login_view.dart';
+import 'package:riverpod_session_management/view/login/login_view.dart';
 import 'package:riverpod_session_management/view/home/home_view.dart';
 
 abstract class LoginViewModel extends ConsumerState<LoginPage> with CacheManager {

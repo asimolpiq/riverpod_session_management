@@ -1,4 +1,4 @@
-part of '../../../view/auth/login_view.dart';
+part of '../../../view/login/login_view.dart';
 
 final LoginStrings loginStrings = LoginStrings();
 

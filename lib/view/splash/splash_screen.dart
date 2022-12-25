@@ -7,7 +7,7 @@ import 'package:riverpod_session_management/model/user_model.dart';
 import 'package:riverpod_session_management/product/utility/assets_manager.dart';
 import 'package:riverpod_session_management/product/utility/project_colors.dart';
 import 'package:riverpod_session_management/product/utility/project_spacers.dart';
-import 'package:riverpod_session_management/view/auth/login_view.dart';
+import 'package:riverpod_session_management/view/login/login_view.dart';
 import 'package:riverpod_session_management/view/home/home_view.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {

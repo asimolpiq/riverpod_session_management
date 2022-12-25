@@ -7,7 +7,7 @@ import 'package:riverpod_session_management/model/user_model.dart';
 import 'package:riverpod_session_management/product/components/appbar/custom_appbar.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:riverpod_session_management/product/utility/project_colors.dart';
-import 'package:riverpod_session_management/view/auth/login_view.dart';
+import 'package:riverpod_session_management/view/login/login_view.dart';
 
 class Homepage extends ConsumerStatefulWidget {
   const Homepage({super.key});
