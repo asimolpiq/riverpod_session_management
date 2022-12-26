@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Asimolpiq Riverpod Session Management ',
       theme: ThemeData.light().copyWith(
         appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle.light,
-            backgroundColor: ProjectColors.primary,
-            // toolbarHeight: kToolbarHeight - 10,
-            centerTitle: true),
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+          backgroundColor: ProjectColors.primary,
+          centerTitle: true,
+        ),
       ),
       home: const SplashScreen(),
     );

@@ -14,6 +14,7 @@ import 'package:riverpod_session_management/product/utility/project_spacers.dart
 import 'package:riverpod_session_management/view/login/model/login_view_model.dart';
 
 import '../../product/components/login/login_form_field.dart';
+import '../../product/enums/text_editing_type.dart';
 part '../../product/components/login/auth_buttons.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -23,18 +24,7 @@ class LoginPage extends ConsumerStatefulWidget {
   ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-enum TextEditingType {
-  email,
-  password,
-}
-
 class _LoginPageState extends LoginViewModel {
-  final formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  bool isVisible = false;
-  final LoginStrings loginStrings = LoginStrings();
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);

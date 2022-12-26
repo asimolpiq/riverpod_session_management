@@ -10,9 +10,17 @@ import 'package:riverpod_session_management/service/login_service.dart';
 import 'package:riverpod_session_management/view/login/login_view.dart';
 import 'package:riverpod_session_management/view/home/home_view.dart';
 
+import '../../../product/strings/auth_strings.dart';
+
 abstract class LoginViewModel extends ConsumerState<LoginPage> with CacheManager {
   late final LoginService loginService;
   final _baseUrl = 'https://reqres.in';
+
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool isVisible = false;
+  final LoginStrings loginStrings = LoginStrings();
 
   @override
   void initState() {

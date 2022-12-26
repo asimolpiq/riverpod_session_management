@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../../view/login/login_view.dart';
+import '../../enums/text_editing_type.dart';
 
 class LoginFormField extends StatefulWidget {
   final TextEditingController editingController;

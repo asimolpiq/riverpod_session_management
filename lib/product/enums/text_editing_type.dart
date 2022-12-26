@@ -1,0 +1,4 @@
+enum TextEditingType {
+  email,
+  password,
+}
