@@ -18,6 +18,4 @@ mixin CacheManager {
   }
 }
 
-Future<SharedPreferences> get _pref async => await SharedPreferences.getInstance();
-
 enum CacheManagerKey { TOKEN }
