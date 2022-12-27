@@ -9,4 +9,4 @@ Bu projemde sizlere riverpod kullanarak nasıl oturum işlemlerini yöneteceğin
 
   ### Bu projede API altyapısı olarak reqres.in kullanılmıştır.
 
-[ScreenShot](https://github.com/asimolpiq/riverpod_session_management/blob/main/session_management.gif?raw=true)
+![ScreenShot](https://github.com/asimolpiq/riverpod_session_management/blob/main/session_management.gif?raw=true)
