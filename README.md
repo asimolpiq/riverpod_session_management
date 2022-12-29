@@ -6,6 +6,10 @@ Bu projemde sizlere riverpod kullanarak nasıl oturum işlemlerini yöneteceğin
 
   "email": "eve.holt@reqres.in" - 
   "password": "cityslicka"
+  
+  ### Projenin Makalesine Erişmek İçin:
+
+<a href="https://medium.com/@alpayguroglu/flutter-riverpod-ile-oturum-yönetimi-16ad082d4115" target="_blank"><img alt="Medium" src="https://img.shields.io/badge/Medium-@asimolpiq-blue?style=flat&logo=Medium"></a>
 
   ### Bu projede API altyapısı olarak reqres.in kullanılmıştır.
 
