@@ -21,7 +21,7 @@ class _HomepageState extends ConsumerState<Homepage> with CacheManager {
 
   late UserModel? userModel;
 
-  Future<void> getTokenCAche() async {
+  Future<void> getTokenCache() async {
     token = await getToken() ?? '';
     setState(() {});
   }
