@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_session_management/product/utility/assets_manager.dart';
 
 // ignore: camel_case_types
-enum _images { left_elips, right_elips, logo, logo_white }
+enum _images { logo, logo_white }
 
 class CustomPageHeader {
   static Stack customPageHeader(BuildContext context) {
